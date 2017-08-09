@@ -17,10 +17,10 @@ public class Test {
     public static void main(String[] args) throws IOException {
 
         String fileName = "Test.txt";
+        String content = System.currentTimeMillis() + "  Time in ms";
 
         GitHubClient client = new GitHubClient().setCredentials("ubx", "altavista99");
         Gist gist = new Gist().setDescription("Just a test ........").setPublic(true);
-        String content = System.currentTimeMillis() + "  Time in ms";
         GistFile file = new GistFile().setContent(content);
         gist.setFiles(Collections.singletonMap(fileName, file));
         gist = new GistService(client).createGist(gist);
